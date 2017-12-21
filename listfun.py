@@ -280,11 +280,3 @@ if __name__ == "__main__":
 	print(myList)
 	print("repli with 3: " + str(repli(myList, 3)))
 	print("\n")
-
-
-
-
-
-
-
-
