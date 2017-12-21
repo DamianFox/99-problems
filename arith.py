@@ -21,7 +21,7 @@ def gcd(x, y):
             return x
         else:
             return gcd(y % x, x)
-    else:2
+    else:
         if x % y == 0:
             return y
         else:
@@ -36,6 +36,23 @@ def coprime(x, y):
 		return False
 
 
+# P34 Calculate Euler's totient function phi(m).
+def phi(num):
+	counter = 0
+	for i in range(1, num+1):
+		if coprime(i, num):
+			counter += 1
+	return counter
+
+
+# P35 Determine the prime factors of a given positive integer. (To be improved)
+def primeFactors(num):
+	newList = []
+	for i in range(1, num):
+		if isPrime(i):
+			if num % i == 0:
+				newList.append(i)
+	return newList
 
 
 if __name__ == "__main__":
@@ -46,4 +63,12 @@ if __name__ == "__main__":
 	n = 100
 	z = 50
 	print("gcd " + str(n) + " " + str(z) + ": " + str(gcd(n,z)))
+	print("\n")
+
+	z = 8
+	print("phi " + str(z) + ": " + str(phi(z)))
+	print("\n")
+
+	z = 315
+	print("primeFactors " + str(z) + ": " + str(primeFactors(z)))
 	print("\n")
