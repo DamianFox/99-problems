@@ -45,7 +45,7 @@ def palindrome(list):
 	else:
 		return False
 
-# P07 Flatten a nested list structure. (To be fixed)
+# P07 Flatten a nested list structure.
 def flatten(l):
 	nList = myFlatten(l, [])
 	return nList
