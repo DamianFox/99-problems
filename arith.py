@@ -83,7 +83,7 @@ def primeFactorsMult(num):
 		newList.append(l)
 
 	return newList
-	
+
 
 # P39 A list of prime numbers between a given range.
 def isPrimeInterval(x, y):
@@ -95,28 +95,18 @@ def isPrimeInterval(x, y):
 
 
 if __name__ == "__main__":
-	number = 100
-	print("isPrime " + str(number) + ": " + str(isPrime(number)))
-	print("\n")
 
-	n = 100
-	z = 50
-	print("gcd " + str(n) + " " + str(z) + ": " + str(gcd(n,z)))
-	print("\n")
+	assert isPrime(100) == False
+	assert isPrime(7) == True
 
-	z = 8
-	print("phi " + str(z) + ": " + str(phi(z)))
-	print("\n")
+	assert gcd(36, 63) == 9
 
-	z = 315
-	print("primeFactors " + str(z) + ": " + str(primeFactors(z)))
-	print("\n")
+	assert coprime(35, 64) == True
 
-	z = 315
-	print("primeFactorsMult " + str(z) + ": " + str(primeFactorsMult(z)))
-	print("\n")
+	assert phi(10) == 4
 
-	n = 100
-	z = 215
-	print("isPrimeInterval " + str(n) + " " + str(z) + ": " + str(isPrimeInterval(n,z)))
-	print("\n")
+	assert primeFactors(315) == [3, 3, 5, 7]
+
+	assert primeFactorsMult(315) == [(3, 2), (5, 1), (7, 1)]
+
+	assert isPrimeInterval(100, 170) == [101, 103, 107, 109, 113, 127, 131, 137, 139, 149, 151, 157, 163, 167]

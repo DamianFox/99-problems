@@ -15,7 +15,7 @@ def myButLast(list):
 # P03 Find the K'th element of a list.
 def elementAt(list, n):
 	for i in range(length(list)):
-		if(i == n):
+		if(i == n-1):
 			return list[i]
 
 
@@ -221,62 +221,42 @@ def repli(list, n):
 
 if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
-	print(myList)
-	print("myLast: " + myLast(myList))
-	print("\n")
+	myList1 = ['a', ['b', ['c', 'd'], 'e'], 'f']
+	myList2 = ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']
+	myList3 = ['a', 'a', 'b', 'b', 'c', 'c', 'c', 'c', 'd', 'd']
+	myList4 = ['a', 'b', 'c']
+	myList5 = [(4, 'a'), 'b', (2, 'c'), (2, 'a'), 'd', (4, 'e')]
 
-	print(myList)
-	print("myButLast: " + myButLast(myList))
-	print("\n")
+	assert myLast(['a', 'b', 'c', 'd']) == 'd'
 
-	print(myList)
-	print("elementAt 3: " + elementAt(myList, 3))
-	print("\n")
+	assert myButLast(['a', 'b', 'c', 'd']) == 'c'
 
-	print(myList)
-	print("length: " + str(length(myList)))
-	print("\n")
+	assert elementAt(['a', 'b', 'c', 'd'], 3) == 'c'
 
-	print(myList)
-	print("reverse: " + str(reverse(myList)))
-	print("\n")
+	assert length(['a', 'b', 'c', 'd']) == 4
 
-	print(myList)
-	print("palindrome: " + str(palindrome(myList)))
-	print("\n")
+	assert reverse(['a', 'b', 'c', 'd']) == ['d', 'c', 'b', 'a']
 
-	myList = ['a', ['b', ['c', 'd'], 'e'], 'f']
-	print(myList)
-	print("flatten: " + str(flatten(myList)))
-	print("\n")
+	assert palindrome(['a', 'b', 'c', 'd']) == False
 
-	myList = ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']
-	print(myList)
-	print("pack: " + str(pack(myList)))
-	print("\n")
+	assert flatten(['a', ['b', ['c', 'd'], 'e'], 'f']) == ['a', 'b', 'c', 'd', 'e', 'f']
 
-	print(myList)
-	print("encode: " + str(encode(myList)))
-	print("\n")
+	assert compress(myList2) == ['a', 'b', 'c', 'a', 'd', 'e']
 
-	print(myList)
-	print("encodeModified: " + str(encodeModified(myList)))
-	print("\n")
+	assert pack(myList2) == [['a', 'a', 'a', 'a'], ['b'], ['c', 'c'], ['a', 'a'], ['d'], ['e', 'e', 'e', 'e']]
 
-	print(myList)
-	print("decode: " + str(decode(myList)))
-	print("\n")
+	assert encode(myList2) == [(4, 'a'), (1, 'b'), (2, 'c'), (2, 'a'), (1, 'd'), (4, 'e')]
 
-	print(myList)
-	print("encodeDirect: " + str(encodeDirect(myList)))
-	print("\n")
+	assert encodeModified(myList2) == [(4, 'a'), 'b', (2, 'c'), (2, 'a'), 'd', (4, 'e')]
 
-	myList = ['a', 'a', 'b', 'b', 'c', 'c', 'c', 'c', 'd', 'd']
-	print(myList)
-	print("dupli: " + str(dupli(myList)))
-	print("\n")
+	assert decode(myList5) == ['a', 'a', 'a', 'a', 'b', 'c', 'c', 'a', 'a', 'd', 'e', 'e', 'e', 'e']
 
-	myList = ['a', 'b', 'c']
-	print(myList)
-	print("repli with 3: " + str(repli(myList, 3)))
-	print("\n")
+	assert encodeDirect(myList2) == [(4, 'a'), 'b', (2, 'c'), (2, 'a'), 'd', (4, 'e')]
+
+	assert dupli(myList3) == ['a', 'a', 'a', 'a', 'b', 'b', 'b', 'b', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'c', 'd', 'd', 'd', 'd']
+
+	assert repli(myList4, 3) == ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c']
+
+
+
+	
