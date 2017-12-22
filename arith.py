@@ -25,7 +25,6 @@ def isPrime(n):
 
 
 # P32 Determine the greatest common divisor of two positive integer numbers.
-# https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 def gcd(x, y):
     if y > x:
         if y % x == 0:
@@ -56,7 +55,7 @@ def phi(num):
 	return counter
 
 
-# P35 Determine the prime factors of a given positive integer. (To be improved)
+# P35 Determine the prime factors of a given positive integer.
 def primeFactors(num):
 	primeFactors = []
 
@@ -72,7 +71,7 @@ def primeFactors(num):
 	return primeFactors
 
 
-# P36 Determine the prime factors of a given positive integer
+# P36 Determine the prime factors of a given positive integer.
 def primeFactorsMult(num):
 	primeFactorsList = primeFactors(num)
 	packList = pack(primeFactorsList)
@@ -84,9 +83,9 @@ def primeFactorsMult(num):
 		newList.append(l)
 
 	return newList
+	
 
-# P39 A list of prime numbers.
-# Given a range of integers by its lower and upper limit, construct a list of all prime numbers in that range.
+# P39 A list of prime numbers between a given range.
 def isPrimeInterval(x, y):
 	newList = []
 	for i in range(x, y+1):
