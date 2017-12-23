@@ -40,10 +40,11 @@ def reverse(list):
 # P06 Find out whether a list is a palindrome.
 def palindrome(list):
 	newList = reverse(list)
-	if(list == newList):
-		return True
-	else:
-		return False
+	return list == newList
+	# if(list == newList):
+	# 	return True
+	# else:
+	# 	return False
 
 # P07 Flatten a nested list structure.
 def flatten(l):
@@ -162,46 +163,46 @@ def decode(list):
 	return newList
 
 # P13 Run-length encoding of a list (direct solution).
-def encodeDirect(list):
+def encodeDirect(encodeDirectList):
 	newList = []
 	currentList = []
-	current = list[0]
+	current = encodeDirectList[0]
 	counter = 1
-	for i in range(1,length(list)):
+	for i in range(1,length(encodeDirectList)):
 
-		if((list[i] == current) and (i == (length(list)-1))):
+		if((encodeDirectList[i] == current) and (i == (length(encodeDirectList)-1))):
 			counter += 1
 			item = (counter, current)
 			newList.append(item)
 
-		elif((list[i] != current) and (i == (length(list)-1))):
+		elif((encodeDirectList[i] != current) and (i == (length(encodeDirectList)-1))):
 			item = (counter, current)
 			newList.append(item)
 			counter = 1
-			item = (counter, list[i])
+			item = (counter, encodeDirectList[i])
 			newList.append(item)
 
-		elif(current != list[i-2] and current != list[i]):
+		elif(current != encodeDirectList[i-2] and current != encodeDirectList[i]):
 			item = (1, current)
 			newList.append(current)
-			current = list[i]
+			current = encodeDirectList[i]
 
-		elif(current == list[i-2] and current != list[i]):
+		elif(current == encodeDirectList[i-2] and current != encodeDirectList[i]):
 			item = (counter, current)
 			newList.append(item)
-			current = list[i]
+			current = encodeDirectList[i]
 			counter = 1
 
-		elif(list[i] == current):
+		elif(encodeDirectList[i] == current):
 			counter += 1
 
 	return newList
 
 
 # P14 Duplicate the elements of a list.
-def dupli(list):
+def dupli(dupliList):
 	newList = []
-	encodeList = encode(list)
+	encodeList = encode(dupliList)
 	for n,l in encodeList:
 		for i in range(n*2):
 			newList.append(l)
@@ -221,16 +222,22 @@ def repli(list, n):
 
 
 # P16 Drop every N'th element from a list.
-def drop(list, n):
+def drop(dropList, n):
 	itemsToRemove = []
-	for i in range(len(list)):
+	for i in range(len(dropList)):
 		if ((i == n) or (i % n == 0 and i != 1 and i != 0)):
-			itemsToRemove.append(list[i-1])
+			itemsToRemove.append(dropList[i-1])
 
 	for i in range(len(itemsToRemove)):
-	 	list.remove(itemsToRemove[i])
+	 	dropList.remove(itemsToRemove[i])
 
-	return list
+	return dropList
+
+
+# P17 Split a list into two parts; the length of the first part is given.
+def split(splitList, n):
+	return [splitList[:n], splitList[n:]]
+
 
 if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
@@ -240,6 +247,7 @@ if __name__ == "__main__":
 	myList4 = ['a', 'b', 'c']
 	myList5 = [(4, 'a'), 'b', (2, 'c'), (2, 'a'), 'd', (4, 'e')]
 	myList6 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k']
+	myList7 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k']
 
 	assert myLast(['a', 'b', 'c', 'd']) == 'd'
 
@@ -271,7 +279,7 @@ if __name__ == "__main__":
 
 	assert repli(myList4, 3) == ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c']
 
-	assert drop(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'], 3) == ['a', 'b', 'd', 'e', 'g', 'h', 'k']
+	assert drop(myList6, 3) == ['a', 'b', 'd', 'e', 'g', 'h', 'k']
 
-
+	assert split(myList7, 3) == [['a','b', 'c'], ['d', 'e', 'f', 'g', 'h', 'i', 'k']]
 
