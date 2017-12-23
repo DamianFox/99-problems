@@ -219,6 +219,19 @@ def repli(list, n):
 
 	return newList
 
+
+# P16 Drop every N'th element from a list.
+def drop(list, n):
+	itemsToRemove = []
+	for i in range(len(list)):
+		if ((i == n) or (i % n == 0 and i != 1 and i != 0)):
+			itemsToRemove.append(list[i-1])
+
+	for i in range(len(itemsToRemove)):
+	 	list.remove(itemsToRemove[i])
+
+	return list
+
 if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
 	myList1 = ['a', ['b', ['c', 'd'], 'e'], 'f']
@@ -226,6 +239,7 @@ if __name__ == "__main__":
 	myList3 = ['a', 'a', 'b', 'b', 'c', 'c', 'c', 'c', 'd', 'd']
 	myList4 = ['a', 'b', 'c']
 	myList5 = [(4, 'a'), 'b', (2, 'c'), (2, 'a'), 'd', (4, 'e')]
+	myList6 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k']
 
 	assert myLast(['a', 'b', 'c', 'd']) == 'd'
 
@@ -257,6 +271,7 @@ if __name__ == "__main__":
 
 	assert repli(myList4, 3) == ['a', 'a', 'a', 'b', 'b', 'b', 'c', 'c', 'c']
 
+	assert drop(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k'], 3) == ['a', 'b', 'd', 'e', 'g', 'h', 'k']
 
 
-	
+
