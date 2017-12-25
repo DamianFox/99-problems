@@ -41,10 +41,6 @@ def reverse(list):
 def palindrome(list):
 	newList = reverse(list)
 	return list == newList
-	# if(list == newList):
-	# 	return True
-	# else:
-	# 	return False
 
 # P07 Flatten a nested list structure.
 def flatten(l):
@@ -123,6 +119,7 @@ def pack1(l):
 
 	return newList
 
+
 # P10 Run-length encoding of a list.
 def encode(list):
 	packList = pack(list)
@@ -133,6 +130,7 @@ def encode(list):
 		newList.append(l)
 
 	return newList
+
 
 # P11 Modified run-length encoding.
 def encodeModified(list):
@@ -149,6 +147,7 @@ def encodeModified(list):
 
 	return newList
 
+
 # P12 Decode a run-length encoded list.
 def decode(list):
 	newList = []
@@ -161,6 +160,7 @@ def decode(list):
 			newList.append(item[0])
 
 	return newList
+
 
 # P13 Run-length encoding of a list (direct solution).
 def encodeDirect(encodeDirectList):
@@ -236,7 +236,38 @@ def drop(dropList, n):
 
 # P17 Split a list into two parts; the length of the first part is given.
 def split(splitList, n):
+	newSplitList = []
+	i = 0
+	while(i<n):
+		newSplitList.append(splitList[0])
+		splitList.pop(0)
+		i += 1
+			
+	return [newSplitList, splitList]
+
+
+# P17 Split a list into two parts; the length of the first part is given.
+def split1(splitList, n):
 	return [splitList[:n], splitList[n:]]
+
+
+# P18 Extract a slice from a list.
+def slice(sliceList, min, max):
+	newSliceList = []
+	for i in range(len(sliceList)):
+		if(i>=min-1 and i<max):
+			newSliceList.append(sliceList[i])
+	return newSliceList
+
+
+# P18 Extract a slice from a list.
+def slice1(sliceList, min, max):
+	return sliceList[min-1:max]
+
+
+# P19 Rotate a list N places to the left.
+def rotate(rotateList, num):
+	return rotateList[num:]+rotateList[0:num]
 
 
 if __name__ == "__main__":
@@ -248,6 +279,8 @@ if __name__ == "__main__":
 	myList5 = [(4, 'a'), 'b', (2, 'c'), (2, 'a'), 'd', (4, 'e')]
 	myList6 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k']
 	myList7 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k']
+	myList8 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'k']
+	myList9 = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
 	assert myLast(['a', 'b', 'c', 'd']) == 'd'
 
@@ -281,5 +314,10 @@ if __name__ == "__main__":
 
 	assert drop(myList6, 3) == ['a', 'b', 'd', 'e', 'g', 'h', 'k']
 
-	assert split(myList7, 3) == [['a','b', 'c'], ['d', 'e', 'f', 'g', 'h', 'i', 'k']]
+	assert split(myList7, 3) == [['a', 'b', 'c'], ['d', 'e', 'f', 'g', 'h', 'i', 'k']]
+
+	assert slice(myList8, 3, 7) == ['c', 'd', 'e', 'f', 'g']
+
+	assert rotate(myList9, 3) == ['d', 'e', 'f', 'g', 'h', 'a', 'b', 'c']
+
 
