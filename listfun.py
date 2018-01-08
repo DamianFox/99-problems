@@ -270,6 +270,12 @@ def rotate(rotateList, num):
 	return rotateList[num:]+rotateList[0:num]
 
 
+# P20 Remove the K'th element from a list.
+def removeAt(removeAtList, num):
+	del removeAtList[num-1]
+	return removeAtList
+
+
 if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
 	myList1 = ['a', ['b', ['c', 'd'], 'e'], 'f']
@@ -319,5 +325,7 @@ if __name__ == "__main__":
 	assert slice(myList8, 3, 7) == ['c', 'd', 'e', 'f', 'g']
 
 	assert rotate(myList9, 3) == ['d', 'e', 'f', 'g', 'h', 'a', 'b', 'c']
+
+	assert removeAt(myList, 2) == ['a', 'c', 'd']
 
 
