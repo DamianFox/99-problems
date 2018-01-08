@@ -276,6 +276,11 @@ def removeAt(removeAtList, num):
 	return removeAtList
 
 
+# P21 Insert an element at a given position into a list.
+def insertAt(item, list, num):
+	return list[:num-1]+[item]+list[num-1:]
+
+
 if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
 	myList1 = ['a', ['b', ['c', 'd'], 'e'], 'f']
@@ -327,5 +332,9 @@ if __name__ == "__main__":
 	assert rotate(myList9, 3) == ['d', 'e', 'f', 'g', 'h', 'a', 'b', 'c']
 
 	assert removeAt(myList, 2) == ['a', 'c', 'd']
+
+	myList = ['a', 'b', 'c', 'd']
+	
+	assert insertAt('alfa', myList, 2) == ['a', 'alfa', 'b', 'c', 'd']
 
 
