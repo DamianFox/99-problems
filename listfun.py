@@ -357,6 +357,6 @@ if __name__ == "__main__":
 	
 	assert insertAt('alfa', myList, 2) == ['a', 'alfa', 'b', 'c', 'd']
 
-	print(myRange(9,4))
+	assert myRange(4, 9) == [4, 5, 6, 7, 8, 9]
 
 
