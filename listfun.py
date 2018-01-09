@@ -42,10 +42,12 @@ def palindrome(list):
 	newList = reverse(list)
 	return list == newList
 
+
 # P07 Flatten a nested list structure.
 def flatten(l):
 	nList = myFlatten(l, [])
 	return nList
+
 
 def myFlatten(l, newList):
 	if not l:
@@ -281,6 +283,24 @@ def insertAt(item, list, num):
 	return list[:num-1]+[item]+list[num-1:]
 
 
+# P22 Create a list containing all integers within a given range.
+def myRange(x, y):
+	rangeList = []
+	if(x<y):
+		while (x<=y):
+			rangeList.append(x)
+			x += 1
+	elif(y<x):
+		while (x>=y):
+			rangeList.append(x)
+			x -= 1
+	else:
+		rangeList.append([x])
+	return rangeList
+
+
+
+
 if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
 	myList1 = ['a', ['b', ['c', 'd'], 'e'], 'f']
@@ -336,5 +356,7 @@ if __name__ == "__main__":
 	myList = ['a', 'b', 'c', 'd']
 	
 	assert insertAt('alfa', myList, 2) == ['a', 'alfa', 'b', 'c', 'd']
+
+	print(myRange(9,4))
 
 
